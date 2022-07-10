@@ -20,20 +20,26 @@
     <br>
     <br>
     <div  class="row">
-
-        <div class="col-md-4">
-            <a href="#" class="link-hover">
-                <div class="card-paciente">
-                    <div class="foto-perfil">
-                        <img src="{% static 'plataforma/img/perfil2.png' %}">
+        {% for paciente in pacientes %}
+            <div class="col-md-4">
+                <a href="#" class="link-hover">
+                    <div class="card-paciente">
+                        <div class="foto-perfil">
+                            {% if paciente.sexo == 'M' %}
+                                <img src="{% static 'plataforma/img/perfil2.png' %}">
+                            {% else %}
+                                <img src="{% static 'plataforma/img/perfil1.png' %}">
+                            {% endif %}  
+                            
+                              
+                        </div>
+                        <br>
+                        <p class="dados">{{paciente.nome}}</p>
+                        <p class="dados">{{paciente.idade}}</p>
                     </div>
-                    <br>
-                    <p class="dados">Lucas Moura</p>
-                    <p class="dados">27 Anos</p>
-                </div>
-            </a>
-        </div>
-        
+                </a>
+            </div>
+        {% endfor %}     
     </div>
 
 
